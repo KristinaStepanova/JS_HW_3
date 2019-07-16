@@ -17,7 +17,7 @@ const price = {
     return this.price;
   },
   getPriceWithDiscount: function() {
-    return this.price - (this.price / 100) * this.discount.slice(0, -1);
+    return this.price - (this.price / 100) * parseInt(this.discount);
   }
 };
 //console.log(price.getPrice());
@@ -103,10 +103,7 @@ let newArr = [];
 arr.forEach((item, index, arr) => {
     let obj = {
         digit: item,
-        odd: true
-    }
-    if(item % 2 === 0) {
-        obj.odd = false;
+        odd: item % 2 === 0 ? false : true
     }
     newArr.push(obj);
 });
